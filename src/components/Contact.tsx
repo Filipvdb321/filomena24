@@ -11,7 +11,7 @@ export default function Contact({ data }: { data: PropertyData }) {
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row justify-between items-center gap-16 mt-16">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
@@ -25,7 +25,7 @@ export default function Contact({ data }: { data: PropertyData }) {
         </motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -60,7 +60,7 @@ export default function Contact({ data }: { data: PropertyData }) {
         </motion.div>
       </div>
       
-      <footer className="mt-32 text-center text-sm font-light text-[#EBE4DD]/40 relative z-10">
+      <footer suppressHydrationWarning className="mt-32 text-center text-sm font-light text-[#EBE4DD]/40 relative z-10">
         &copy; {new Date().getFullYear()} UGLY Real Estate &mdash; Premium Presentation
       </footer>
     </section>

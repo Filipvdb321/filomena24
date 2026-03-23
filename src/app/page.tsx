@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-warm-bg)]">
       <Hero data={frontmatter} />
-      <Details content={content} />
+      <Details content={content} data={frontmatter} />
       <Gallery images={frontmatter.images} />
       <Contact data={frontmatter} />
     </main>

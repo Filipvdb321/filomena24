@@ -3,28 +3,34 @@
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 
-export default function Details({ content }: { content: string }) {
+export default function Details({ content, data }: { content: string; data?: any }) {
   return (
-    <section id="ontdek" className="py-24 px-8 md:px-12 lg:px-24">
+    <section id="ontdek" className="py-32 px-8 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 w-full overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="lg:w-1/3"
+          className="lg:w-1/3 flex flex-col"
         >
           <div className="w-12 h-1 bg-[#C3996B] mb-8" />
           <h2 className="text-3xl md:text-5xl font-serif text-[#2D2724] leading-tight">
             Authenticiteit en Ruimte in hartje Zurenborg
           </h2>
-          <p className="mt-6 text-[#8C827A] font-light leading-relaxed">
+          <p className="mt-6 text-[#8C827A] font-light leading-relaxed mb-16">
             Ontdek de ongeëvenaarde grandeur van dit indrukwekkende herenhuis, waar klassieke charme moeiteloos combineert met hedendaags wooncomfort.
           </p>
+          
+          {data && data.images && data.images[1] && (
+            <div className="relative w-full aspect-[4/5] rounded-[2px] overflow-hidden shadow-2xl hidden lg:block mt-auto">
+              <img src={data.images[1]} alt="Detail" className="object-cover w-full h-full hover:scale-105 transition-transform duration-1000 ease-out" />
+            </div>
+          )}
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2 }}

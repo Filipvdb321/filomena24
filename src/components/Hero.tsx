@@ -20,7 +20,7 @@ export default function Hero({ data }: { data: PropertyData }) {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 text-center px-6 max-w-5xl text-[#FCFAF8] mt-16"
@@ -31,23 +31,32 @@ export default function Hero({ data }: { data: PropertyData }) {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] drop-shadow-2xl mb-8">
           {data.title}
         </h1>
-        <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm md:text-base font-light opacity-90">
-          <span>{data.bedrooms} Slaapkamers</span>
-          <span className="hidden sm:inline">&middot;</span>
-          <span>{data.living_area}</span>
-          <span className="hidden sm:inline">&middot;</span>
-          <span>EPC: {data.epc}</span>
-        </div>
-        
         <motion.a 
           href="#ontdek"
-          whileHover={{ scale: 1.05, backgroundColor: "rgba(195, 153, 107, 0.9)" }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block mt-12 px-10 py-4 bg-[#C3996B] shadow-[0_4px_20px_rgba(195,153,107,0.4)] hover:shadow-[0_8px_30px_rgba(195,153,107,0.6)] rounded-full text-[#FCFAF8] transition-all duration-300 uppercase tracking-widest text-xs font-semibold"
+          whileHover={{ scale: 1.02, backgroundColor: "rgba(195, 153, 107, 1)", letterSpacing: "0.2em" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="inline-block mt-12 px-10 py-4 bg-[#C3996B] shadow-[0_4px_20px_rgba(195,153,107,0.4)] hover:shadow-[0_8px_30px_rgba(195,153,107,0.6)] rounded-none text-[#FCFAF8] transition-all uppercase tracking-widest text-xs font-semibold backdrop-blur-sm"
         >
           Ontdek dit Herenhuis
         </motion.a>
       </motion.div>
+
+      <div className="absolute bottom-0 left-0 right-0 bg-[#1A1614]/80 backdrop-blur-md border-t border-[#FCFAF8]/10 py-6 px-4 z-20">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-[#EBE4DD] text-sm uppercase tracking-[0.2em] font-light gap-4">
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-px bg-[#C3996B]"></span>
+            {data.bedrooms} Slaapkamers
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-px bg-[#C3996B]"></span>
+            {data.living_area}
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="w-4 h-px bg-[#C3996B]"></span>
+            EPC: {data.epc}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
