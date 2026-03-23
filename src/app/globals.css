@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-bg: #FCFAf8;
+  --color-warm-text: #2D2724;
+  --color-warm-accent: #C3996B;
+  --color-warm-secondary: #EBE4DD;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-warm-bg);
+  color: var(--color-warm-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
