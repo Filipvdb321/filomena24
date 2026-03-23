@@ -72,7 +72,7 @@ epc: "B"
 living_area: "205 m²"
 bedrooms: 4
 images:
-${downloadedImages.map(img => "  - " + img).join('\\n')}
+${downloadedImages.map(img => "  - " + img).join('\n')}
 ---
 
 De Filomenastraat is zo’n straat waar je vanzelf trager gaat wandelen. Een elegante Zurenborgstraat, omringd door erfgoedgevels, bomen en dat typische, zachte stadsritme waar deze wijk zo geliefd om is. Hier woon je rustig, bijna dorps, terwijl alles wat Antwerpen zo fijn maakt op wandelafstand ligt. Achter het prachtige geveltje van vandaag schuilt dit statige herenhuis, boordevol authenticiteit en ruimte. Geprikkeld? Kom binnen…

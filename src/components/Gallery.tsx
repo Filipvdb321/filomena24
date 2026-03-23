@@ -13,15 +13,15 @@ export default function Gallery({ images }: { images: string[] }) {
           Binnenkijken
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((src, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: (idx % 6) * 0.1 }}
-              className={"relative overflow-hidden rounded-lg shadow-sm " + (idx === 0 || idx === 3 ? "md:col-span-2" : "")}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: (idx % 3) * 0.15 }}
+              className={"relative overflow-hidden rounded-lg shadow-sm w-full aspect-[4/3] md:aspect-auto md:min-h-[400px] " + (idx === 0 || idx === 3 ? "md:col-span-2 md:aspect-[21/9]" : "")}
             >
               <Image 
                 src={src} 
