@@ -67,7 +67,7 @@ title: "Zurenborgklassieker waar je elke dag opnieuw blij van wordt"
 address: "Filomenastraat 24, 2018 Antwerpen"
 agent_name: "Lien Vandenborre"
 agent_phone: "03 309 10 10"
-agent_email: "hallo@ugly.be"
+agent_email: "lien@ugly.be"
 epc: "B"
 living_area: "205 m²"
 bedrooms: 4
