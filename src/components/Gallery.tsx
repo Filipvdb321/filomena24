@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Gallery({ images }: { images: string[] }) {
+export default function Gallery({ images, quotes = [] }: { images: string[], quotes?: { index: number, text: string, author: string }[] }) {
   // Skip the hero image (0) and the agent photo (1)
   const galleryImages = images.slice(2);
 
@@ -18,25 +18,7 @@ export default function Gallery({ images }: { images: string[] }) {
           {galleryImages.flatMap((src, idx) => {
             const isFullWidth = idx % 3 === 0;
             
-            // Voorbeeld quotes (Optie 3 verkennen) - later in te vullen door Filip
-            const quotes = [
-              {
-                index: 4,
-                text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Hier hebben we stiekem heel wat uren rond de open haard doorgebracht.",
-                author: "Filip"
-              },
-              {
-                index: 9,
-                text: "Onze dochter leerde fietsen op het koertje, met de avondzon op haar gezicht. Een veilige, rustige oase midden in de stad.",
-                author: "Filip & Vrouw"
-              },
-              {
-                index: 18,
-                text: "Zurenborg is voor ons jarenlang een dorp in de stad geweest. We gaan de ochtendkoffies op de hoek en ons huis on-ge-looflijk missen. Maar het is tijd voor iets groters.",
-                author: "Filip, Vrouw & Dochter"
-              }
-            ];
-            
+
             const quote = quotes.find(q => q.index === idx);
             const items = [];
 

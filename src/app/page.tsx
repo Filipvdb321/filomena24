@@ -12,7 +12,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--color-warm-bg)]">
       <Hero data={frontmatter} />
       <Details content={content} data={frontmatter} />
-      <Gallery images={frontmatter.images} />
+      <Gallery images={frontmatter.images} quotes={frontmatter.quotes} />
       <Contact data={frontmatter} />
     </main>
   );

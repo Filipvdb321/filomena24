@@ -12,6 +12,11 @@ export interface PropertyData {
   living_area: string;
   bedrooms: number;
   images: string[];
+  quotes?: {
+    index: number;
+    text: string;
+    author: string;
+  }[];
 }
 
 export function getPropertyContent() {

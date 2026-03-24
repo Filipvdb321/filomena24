@@ -29,6 +29,16 @@ images:
   - /content/images/image-19.jpg
   - /content/images/image-20.jpg
   - /content/images/image-21.jpg
+quotes:
+  - index: 4
+    text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Hier hebben we stiekem heel wat uren rond de open haard doorgebracht."
+    author: "Filip"
+  - index: 9
+    text: "Onze dochter leerde fietsen op het koertje, met de avondzon op haar gezicht. Een veilige, rustige oase midden in de stad."
+    author: "Filip & Vrouw"
+  - index: 18
+    text: "Zurenborg is voor ons jarenlang een dorp in de stad geweest. We gaan de ochtendkoffies op de hoek en ons huis on-ge-looflijk missen. Maar het is tijd voor iets groters."
+    author: "Filip, Vrouw & Dochter"
 ---
 
 De Filomenastraat is zo’n straat waar je vanzelf trager gaat wandelen. Een elegante Zurenborgstraat, omringd door erfgoedgevels, bomen en dat typische, zachte stadsritme waar deze wijk zo geliefd om is. Hier woon je rustig, bijna dorps, terwijl alles wat Antwerpen zo fijn maakt op wandelafstand ligt. Achter het prachtige geveltje van vandaag schuilt dit statige herenhuis, boordevol authenticiteit en ruimte. Geprikkeld? Kom binnen…
