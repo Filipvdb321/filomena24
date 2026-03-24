@@ -15,11 +15,55 @@ export default function Gallery({ images }: { images: string[] }) {
         </h2>
         
         <div className="flex flex-wrap gap-4 md:gap-10">
-          {galleryImages.map((src, idx) => {
+          {galleryImages.flatMap((src, idx) => {
             const isFullWidth = idx % 3 === 0;
-            return (
+            
+            // Voorbeeld quotes (Optie 3 verkennen) - later in te vullen door Filip
+            const quotes = [
+              {
+                index: 4,
+                text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Hier hebben we stiekem heel wat uren rond de open haard doorgebracht.",
+                author: "Filip"
+              },
+              {
+                index: 9,
+                text: "Onze dochter leerde fietsen op het koertje, met de avondzon op haar gezicht. Een veilige, rustige oase midden in de stad.",
+                author: "Filip & Vrouw"
+              },
+              {
+                index: 18,
+                text: "Zurenborg is voor ons jarenlang een dorp in de stad geweest. We gaan de ochtendkoffies op de hoek en ons huis on-ge-looflijk missen. Maar het is tijd voor iets groters.",
+                author: "Filip, Vrouw & Dochter"
+              }
+            ];
+            
+            const quote = quotes.find(q => q.index === idx);
+            const items = [];
+
+            if (quote) {
+              items.push(
+                <motion.div
+                  key={`quote-${idx}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1 }}
+                  className="w-full py-12 md:py-16 flex flex-col items-center justify-center text-center px-4 md:px-12 my-4 md:my-8"
+                >
+                  <div className="w-12 h-[2px] bg-[#C3996B] mb-8 opacity-60" />
+                  <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-[#2D2724] max-w-4xl leading-relaxed italic">
+                    &ldquo;{quote.text}&rdquo;
+                  </blockquote>
+                  <p className="mt-8 text-[#8C827A] uppercase tracking-[0.2em] text-xs font-semibold">
+                    &mdash; {quote.author}
+                  </p>
+                </motion.div>
+              );
+            }
+
+            items.push(
               <motion.div 
-                key={idx}
+                key={`img-${idx}`}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -37,6 +81,8 @@ export default function Gallery({ images }: { images: string[] }) {
                 />
               </motion.div>
             );
+
+            return items;
           })}
         </div>
       </div>
