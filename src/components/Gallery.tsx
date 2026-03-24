@@ -15,17 +15,11 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
         </h2>
         
         <div className="flex flex-wrap gap-4 md:gap-10">
-          {galleryImages.flatMap((src, idx) => {
-            const isFullWidth = idx % 3 === 0;
-            
-
-            const quote = quotes?.find(q => q.index === idx);
-            const items = [];
-
+          {(() => {
             // Helper to render the quote block
-            const renderQuote = (q: NonNullable<typeof quote>) => (
+            const renderQuote = (q: NonNullable<typeof quotes>[0], keyIndex: string | number) => (
               <motion.div
-                key={`quote-${idx}`}
+                key={`quote-${keyIndex}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -42,12 +36,15 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
               </motion.div>
             );
 
-            // If the quote is inserted at the SECOND half of a portrait pair (idx % 3 === 2),
-            // putting it BEFORE the image would orphan the first portrait image on a separate row.
-            // So we only render it BEFORE if it doesn't break a pair.
-            if (quote && idx % 3 !== 2) {
-              items.push(renderQuote(quote));
-            }
+            // 1. Render all images and their associated quotes
+            const gridItems = galleryImages.flatMap((src, idx) => {
+              const isFullWidth = idx % 3 === 0;
+              const quote = quotes?.find(q => q.index === idx);
+              const items = [];
+
+              if (quote && idx % 3 !== 2) {
+                items.push(renderQuote(quote, idx));
+              }
 
             items.push(
               <motion.div 
@@ -71,12 +68,21 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
             );
 
             // If it's the second half of a pair, render the quote AFTER the image to keep the pair together.
-            if (quote && idx % 3 === 2) {
-              items.push(renderQuote(quote));
-            }
+              if (quote && idx % 3 === 2) {
+                items.push(renderQuote(quote, `${idx}-after`));
+              }
 
-            return items;
-          })}
+              return items;
+            });
+
+            // 2. Render any leftover quotes that have an index beyond the layout array
+            const leftoverQuotes = quotes?.filter(q => q.index >= galleryImages.length) || [];
+            
+            return [
+              ...gridItems,
+              ...leftoverQuotes.map((q, i) => renderQuote(q, `leftover-${i}`))
+            ];
+          })()}
         </div>
       </div>
     </section>
