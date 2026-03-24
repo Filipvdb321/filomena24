@@ -34,7 +34,7 @@ quotes:
     text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Zelfs nu genieten we nog elke dag van de schoonheid en gezelligheid van ons huis."
     author: "Filip, Sarah, Mariline en Rodin"
   - index: 8
-    text: "Dit is wat we ons huiskamer cafe noemden. Misschien gaan we deze kamer nog het meest missen. Hier hebben we hapjes gegeten, gedronken, gelachen, filmavondjes gehouden en ook gewoon rustig een boekje komen lezen."
+    text: "Dit is wat we ons huiskamer cafe noemen. Misschien gaan we deze kamer nog het meest missen. Hier hebben we hapjes gegeten, gedronken, gelachen, filmavondjes gehouden en ook gewoon rustig een boekje komen lezen."
     author: "Filip, Sarah, Mariline en Rodin"
   - index: 10
     text: "Het koertje was een veilige, rustige oase midden in de stad. In de winter blijft het er verrassend zacht en in de zomer is het er heerlijk koel. We hebben hier zowel gezellige ontbijtjes gehad als avondjes met vrienden. Het gaf ons altijd een vakantiegevoel."
