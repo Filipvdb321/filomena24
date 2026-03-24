@@ -31,14 +31,21 @@ images:
   - /content/images/image-21.jpg
 quotes:
   - index: 4
-    text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Hier hebben we stiekem heel wat uren rond de open haard doorgebracht."
-    author: "Filip"
-  - index: 9
-    text: "Onze dochter leerde fietsen op het koertje, met de avondzon op haar gezicht. Een veilige, rustige oase midden in de stad."
-    author: "Filip & Vrouw"
-  - index: 18
+    text: "De hoge plafonds en authentieke elementen voelden direct als 'thuis'. Zelfs nu genieten we nog elke dag van de schoonheid en gezelligheid van ons huis."
+    author: "Filip, Sarah, Mariline en Rodin"
+  - index: 8
+    text: "Dit is wat we ons huiskamer cafe noemden. Misschien gaan we deze kamer nog het meest missen. Hier hebben we hapjes gegeten, gedronken, gelachen, filmavondjes gehouden en ook gewoon rustig een boekje komen lezen."
+    author: "Filip, Sarah, Mariline en Rodin"
+  - index: 10
+    text: "Het koertje was een veilige, rustige oase midden in de stad. In de winter blijft het er verrassend zacht en in de zomer is het er heerlijk koel. We hebben hier zowel gezellige ontbijtjes gehad als avondjes met vrienden. Het gaf ons altijd een vakantiegevoel."
+    author: "Filip, Sarah, Mariline en Rodin"
+  - index: 17
+    text: "De sportkamer is een kamer waar we heel veel gebruik van hebben gemaakt. Hier hebben we gesport, gedanst, lekker gek gespeeld en nog veel meer."
+    author: "Filip, Sarah, Mariline en Rodin"
+  - index: 19
     text: "Zurenborg is voor ons jarenlang een dorp in de stad geweest. We gaan de ochtendkoffies op de hoek en ons huis on-ge-looflijk missen. Maar het is tijd voor iets groters."
-    author: "Filip, Vrouw & Dochter"
+    author: "Filip, Sarah, Mariline en Rodin"
+
 ---
 
 De Filomenastraat is zo’n straat waar je vanzelf trager gaat wandelen. Een elegante Zurenborgstraat, omringd door erfgoedgevels, bomen en dat typische, zachte stadsritme waar deze wijk zo geliefd om is. Hier woon je rustig, bijna dorps, terwijl alles wat Antwerpen zo fijn maakt op wandelafstand ligt. Achter het prachtige geveltje van vandaag schuilt dit statige herenhuis, boordevol authenticiteit en ruimte. Geprikkeld? Kom binnen…
