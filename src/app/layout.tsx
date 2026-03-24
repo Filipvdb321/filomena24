@@ -5,10 +5,40 @@ import type { Metadata } from 'next';
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
-export const metadata: Metadata = {
-  title: 'Filomenastraat 24 - Prachtig Herenhuis Te Koop',
-  description: 'Een elegante Zurenborgklassieker in Antwerpen.',
-};
+import { getPropertyContent } from '@/lib/content';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { frontmatter } = getPropertyContent();
+  
+  return {
+    metadataBase: new URL('https://filomena24.be'),
+    title: frontmatter.seo_title || frontmatter.title,
+    description: frontmatter.seo_description,
+    keywords: frontmatter.seo_keywords,
+    openGraph: {
+      title: frontmatter.seo_title || frontmatter.title,
+      description: frontmatter.seo_description,
+      url: '/',
+      siteName: 'Filomena 24',
+      images: [
+        {
+          url: frontmatter.seo_image || frontmatter.images[0],
+          width: 1200,
+          height: 630,
+          alt: frontmatter.seo_title || frontmatter.title,
+        }
+      ],
+      locale: 'nl_BE',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.seo_title || frontmatter.title,
+      description: frontmatter.seo_description,
+      images: [frontmatter.seo_image || frontmatter.images[0]],
+    },
+  };
+}
 
 export default function RootLayout({
   children,

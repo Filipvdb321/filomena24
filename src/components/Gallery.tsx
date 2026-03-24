@@ -59,7 +59,7 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
               >
                 <Image 
                   src={src} 
-                  alt={"Property interior " + (idx + 1)} 
+                  alt={"Interieur Herenhuis Filomenastraat - Foto " + (idx + 1)} 
                   fill 
                   className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out" 
                   sizes={isFullWidth ? "100vw" : "(max-width: 768px) 100vw, 50vw"}

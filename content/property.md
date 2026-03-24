@@ -7,6 +7,10 @@ agent_email: "lien@ugly.be"
 epc: "B"
 living_area: "205 m²"
 bedrooms: 4
+seo_title: "Filomenastraat 24 - Prachtig Herenhuis Te Koop"
+seo_description: "Een elegante Zurenborgklassieker in Antwerpen."
+seo_keywords: "huis te koop antwerpen, herenhuis zurenborg, immo antwerpen, filomenastraat 24, vastgoed"
+seo_image: "/content/images/image-1.jpg"
 images:
   - /content/images/image-1.jpg
   - /content/images/image-2.webp
