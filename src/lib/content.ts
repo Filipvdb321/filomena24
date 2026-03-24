@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { cache } from 'react';
 
 export interface PropertyData {
   title: string;
@@ -17,9 +18,13 @@ export interface PropertyData {
     text: string;
     author: string;
   }[];
+  seo_title?: string;
+  seo_description?: string;
+  seo_image?: string;
+  seo_keywords?: string;
 }
 
-export function getPropertyContent() {
+export const getPropertyContent = cache(() => {
   const contentPath = path.join(process.cwd(), 'content', 'property.md');
   const fileContents = fs.readFileSync(contentPath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -28,4 +33,4 @@ export function getPropertyContent() {
     frontmatter: data as PropertyData,
     content
   };
-}
+});

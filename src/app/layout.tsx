@@ -5,33 +5,40 @@ import type { Metadata } from 'next';
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://filomena24.be'),
-  title: 'Filomenastraat 24 - Prachtig Herenhuis Te Koop',
-  description: 'Een elegante Zurenborgklassieker in Antwerpen.',
-  openGraph: {
-    title: 'Filomenastraat 24 - Prachtig Herenhuis Te Koop',
-    description: 'Een elegante Zurenborgklassieker in Antwerpen.',
-    url: '/',
-    siteName: 'Filomena 24',
-    images: [
-      {
-        url: '/content/images/image-1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Filomenastraat 24 - Prachtig Herenhuis',
-      }
-    ],
-    locale: 'nl_BE',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Filomenastraat 24 - Prachtig Herenhuis Te Koop',
-    description: 'Een elegante Zurenborgklassieker in Antwerpen.',
-    images: ['/content/images/image-1.jpg'],
-  },
-};
+import { getPropertyContent } from '@/lib/content';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { frontmatter } = getPropertyContent();
+  
+  return {
+    metadataBase: new URL('https://filomena24.be'),
+    title: frontmatter.seo_title || frontmatter.title,
+    description: frontmatter.seo_description,
+    keywords: frontmatter.seo_keywords,
+    openGraph: {
+      title: frontmatter.seo_title || frontmatter.title,
+      description: frontmatter.seo_description,
+      url: '/',
+      siteName: 'Filomena 24',
+      images: [
+        {
+          url: frontmatter.seo_image || frontmatter.images[0],
+          width: 1200,
+          height: 630,
+          alt: frontmatter.seo_title || frontmatter.title,
+        }
+      ],
+      locale: 'nl_BE',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.seo_title || frontmatter.title,
+      description: frontmatter.seo_description,
+      images: [frontmatter.seo_image || frontmatter.images[0]],
+    },
+  };
+}
 
 export default function RootLayout({
   children,
