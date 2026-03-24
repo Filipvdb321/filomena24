@@ -29,8 +29,30 @@ export const getPropertyContent = cache(() => {
   const fileContents = fs.readFileSync(contentPath, 'utf8');
   const { data, content } = matter(fileContents);
   
+  const frontmatter = data as PropertyData;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SingleFamilyResidence',
+    name: frontmatter.seo_title || frontmatter.title,
+    description: frontmatter.seo_description || 'Prachtig herenhuis te koop',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: frontmatter.address,
+      addressLocality: 'Antwerpen',
+      addressCountry: 'BE'
+    },
+    numberOfBedrooms: frontmatter.bedrooms,
+    floorSize: {
+      '@type': 'QuantitativeValue',
+      value: frontmatter.living_area.replace(/[^0-9.,]/g, ''),
+      unitCode: 'MTK'
+    }
+  };
+  
   return {
-    frontmatter: data as PropertyData,
-    content
+    frontmatter,
+    content,
+    jsonLd
   };
 });

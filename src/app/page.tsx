@@ -6,26 +6,7 @@ import Contact from '@/components/Contact';
 
 export default function Home() {
   // Force HMR
-  const { frontmatter, content } = getPropertyContent();
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SingleFamilyResidence',
-    name: frontmatter.title,
-    description: 'Een elegante Zurenborgklassieker in Antwerpen.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: frontmatter.address,
-      addressLocality: 'Antwerpen',
-      addressCountry: 'BE'
-    },
-    numberOfBedrooms: frontmatter.bedrooms,
-    floorSize: {
-      '@type': 'QuantitativeValue',
-      value: frontmatter.living_area.replace(/[^0-9.,]/g, ''),
-      unitCode: 'MTK' // Square meters
-    }
-  };
+  const { frontmatter, content, jsonLd } = getPropertyContent();
 
   return (
     <main className="min-h-screen bg-[var(--color-warm-bg)]">
