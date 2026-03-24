@@ -37,7 +37,7 @@ export default function Hero({ data }: { data: PropertyData }) {
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="inline-block mt-12 px-10 py-4 bg-[#C3996B] shadow-[0_4px_20px_rgba(195,153,107,0.4)] hover:shadow-[0_8px_30px_rgba(195,153,107,0.6)] rounded-none text-[#FCFAF8] transition-all uppercase tracking-widest text-xs font-semibold backdrop-blur-sm"
         >
-          Vraagprijs & Dossier Ontdekken
+          Ontdek dit Herenhuis
         </motion.a>
       </motion.div>
 

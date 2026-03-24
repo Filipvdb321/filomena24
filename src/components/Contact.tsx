@@ -20,7 +20,7 @@ export default function Contact({ data }: { data: PropertyData }) {
           <div className="w-12 h-1 bg-[#C3996B] mb-8" />
           <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">Interesse of Vraagprijs Weten?</h2>
           <p className="text-lg md:text-xl font-light text-[#EBE4DD]/80 max-w-lg leading-relaxed">
-            Dit herenhuis staat discreet te koop. Neem rechtstreeks contact op met Lien voor de vraagprijs, het volledige dossier of om zelf de sfeer te ervaren tijdens een persoonlijke rondleiding.
+            Neem rechtstreeks contact op met Lien voor de vraagprijs, het volledige dossier of om zelf de sfeer te ervaren tijdens een persoonlijke rondleiding.
           </p>
         </motion.div>
         
