@@ -19,28 +19,34 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
             const isFullWidth = idx % 3 === 0;
             
 
-            const quote = quotes.find(q => q.index === idx);
+            const quote = quotes?.find(q => q.index === idx);
             const items = [];
 
-            if (quote) {
-              items.push(
-                <motion.div
-                  key={`quote-${idx}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 1 }}
-                  className="w-full py-12 md:py-16 flex flex-col items-center justify-center text-center px-4 md:px-12 my-4 md:my-8"
-                >
-                  <div className="w-12 h-[2px] bg-[#C3996B] mb-8 opacity-60" />
-                  <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-[#2D2724] max-w-4xl leading-relaxed italic">
-                    &ldquo;{quote.text}&rdquo;
-                  </blockquote>
-                  <p className="mt-8 text-[#8C827A] uppercase tracking-[0.2em] text-xs font-semibold">
-                    &mdash; {quote.author}
-                  </p>
-                </motion.div>
-              );
+            // Helper to render the quote block
+            const renderQuote = (q: NonNullable<typeof quote>) => (
+              <motion.div
+                key={`quote-${idx}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1 }}
+                className="w-full py-12 md:py-16 flex flex-col items-center justify-center text-center px-4 md:px-12 my-4 md:my-8"
+              >
+                <div className="w-12 h-[2px] bg-[#C3996B] mb-8 opacity-60" />
+                <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-[#2D2724] max-w-4xl leading-relaxed italic">
+                  &ldquo;{q.text}&rdquo;
+                </blockquote>
+                <p className="mt-8 text-[#8C827A] uppercase tracking-[0.2em] text-xs font-semibold">
+                  &mdash; {q.author}
+                </p>
+              </motion.div>
+            );
+
+            // If the quote is inserted at the SECOND half of a portrait pair (idx % 3 === 2),
+            // putting it BEFORE the image would orphan the first portrait image on a separate row.
+            // So we only render it BEFORE if it doesn't break a pair.
+            if (quote && idx % 3 !== 2) {
+              items.push(renderQuote(quote));
             }
 
             items.push(
@@ -63,6 +69,11 @@ export default function Gallery({ images, quotes = [] }: { images: string[], quo
                 />
               </motion.div>
             );
+
+            // If it's the second half of a pair, render the quote AFTER the image to keep the pair together.
+            if (quote && idx % 3 === 2) {
+              items.push(renderQuote(quote));
+            }
 
             return items;
           })}
