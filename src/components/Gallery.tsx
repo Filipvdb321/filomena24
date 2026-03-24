@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Gallery({ images }: { images: string[] }) {
-  const galleryImages = images.slice(1);
+  // Skip the hero image (0) and the agent photo (1)
+  const galleryImages = images.slice(2);
 
   return (
     <section className="py-32 bg-[#EBE4DD]/30 px-6 md:px-12">
@@ -13,25 +14,30 @@ export default function Gallery({ images }: { images: string[] }) {
           Binnenkijken
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {galleryImages.map((src, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: (idx % 3) * 0.15 }}
-              className={"relative overflow-hidden rounded-[2px] shadow-sm w-full aspect-[4/3] md:aspect-auto md:min-h-[400px] " + (idx === 0 || idx === 3 ? "md:col-span-2 md:aspect-[21/9]" : "")}
-            >
-              <Image 
-                src={src} 
-                alt={"Property interior " + (idx + 1)} 
-                fill 
-                className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out" 
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </motion.div>
-          ))}
+        <div className="flex flex-wrap gap-4 md:gap-10">
+          {galleryImages.map((src, idx) => {
+            const isFullWidth = idx % 3 === 0;
+            return (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: (idx % 3) * 0.15 }}
+                className={`relative overflow-hidden rounded-[2px] shadow-sm w-full ${
+                  isFullWidth ? 'aspect-[16/9] md:aspect-[21/9]' : 'aspect-square sm:aspect-[4/5] md:w-[calc(50%-1.25rem)]'
+                }`}
+              >
+                <Image 
+                  src={src} 
+                  alt={"Property interior " + (idx + 1)} 
+                  fill 
+                  className="object-cover hover:scale-105 transition-transform duration-700 ease-in-out" 
+                  sizes={isFullWidth ? "100vw" : "(max-width: 768px) 100vw, 50vw"}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

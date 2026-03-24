@@ -39,7 +39,7 @@ async function extractContent() {
   
   const downloadedImages = [];
   let count = 0;
-  for (const imgUrl of images.slice(0, 16)) {
+  for (const imgUrl of images.slice(0, 30)) {
     try {
       count++;
       const pureUrl = imgUrl.split('?')[0];

@@ -31,6 +31,16 @@ export default function Contact({ data }: { data: PropertyData }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-col gap-8 w-full md:w-auto bg-[#FCFAF8] text-[#2D2724] p-10 md:p-14 rounded-2xl shadow-2xl"
         >
+          {data.images && data.images[1] && (
+            <div className="flex items-center gap-6 mb-2 pb-8 border-b border-[#EBE4DD]">
+              <img src={data.images[1]} alt={data.agent_name} className="w-20 h-20 rounded-full object-cover border border-[#C3996B]/30 shadow-sm" />
+              <div>
+                <p className="text-[#8C827A] text-xs uppercase tracking-widest font-semibold mb-1">Uw Makelaar</p>
+                <p className="text-2xl font-serif text-[#1A1614]">{data.agent_name}</p>
+              </div>
+            </div>
+          )}
+
           <motion.a whileHover={{ x: 8 }} href={"tel:" + data.agent_phone.replace(/\s/g, '')} className="flex items-center gap-6 group">
             <div className="w-14 h-14 rounded-full border border-[#C3996B] flex items-center justify-center bg-[#FCFAF8] group-hover:bg-[#C3996B] transition-colors duration-300 shadow-sm shadow-[#C3996B]/20">
               <Phone className="w-6 h-6 text-[#C3996B] group-hover:text-[#FCFAF8] transition-colors" />

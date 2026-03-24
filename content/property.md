@@ -24,6 +24,12 @@ images:
   - /content/images/image-14.jpg
   - /content/images/image-15.jpg
   - /content/images/image-16.jpg
+  - /content/images/image-17.jpg
+  - /content/images/image-18.jpg
+  - /content/images/image-19.jpg
+  - /content/images/image-20.jpg
+  - /content/images/image-21.jpg
+  - /content/images/image-22.png
 ---
 
 De Filomenastraat is zo’n straat waar je vanzelf trager gaat wandelen. Een elegante Zurenborgstraat, omringd door erfgoedgevels, bomen en dat typische, zachte stadsritme waar deze wijk zo geliefd om is. Hier woon je rustig, bijna dorps, terwijl alles wat Antwerpen zo fijn maakt op wandelafstand ligt. Achter het prachtige geveltje van vandaag schuilt dit statige herenhuis, boordevol authenticiteit en ruimte. Geprikkeld? Kom binnen…

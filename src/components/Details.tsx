@@ -18,15 +18,9 @@ export default function Details({ content, data }: { content: string; data?: any
           <h2 className="text-3xl md:text-5xl font-serif text-[#2D2724] leading-tight">
             Authenticiteit en Ruimte in hartje Zurenborg
           </h2>
-          <p className="mt-6 text-[#8C827A] font-light leading-relaxed mb-16">
+          <p className="mt-6 text-[#8C827A] font-light leading-relaxed mb-4">
             Ontdek de ongeëvenaarde grandeur van dit indrukwekkende herenhuis, waar klassieke charme moeiteloos combineert met hedendaags wooncomfort.
           </p>
-          
-          {data && data.images && data.images[1] && (
-            <div className="relative w-full aspect-[4/5] rounded-[2px] overflow-hidden shadow-2xl hidden lg:block mt-auto">
-              <img src={data.images[1]} alt="Detail" className="object-cover w-full h-full hover:scale-105 transition-transform duration-1000 ease-out" />
-            </div>
-          )}
         </motion.div>
 
         <motion.div 
